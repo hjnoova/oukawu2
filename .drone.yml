@@ -7,4 +7,5 @@ steps:
   image: python
   commands:
   - pip install -r requirements.txt
-  - nohup pipenv run python -m uvicorn test:app --reload --host 0.0.0.0 --port 50081 2>&1 >> log.log
+  - python -m uvicorn test:app --reload --host 0.0.0.0 --port 50081
+  detach: true
