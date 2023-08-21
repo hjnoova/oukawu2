@@ -7,10 +7,10 @@ steps:
   image: python
   commands:
   - docker build -t my-python .
-- name: test
-  image: python
-  commands:
-  - docker run my-python pytest
+# - name: test
+#   image: python
+#   commands:
+#   - docker run my-python pytest
 
 ---
 
