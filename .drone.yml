@@ -1,39 +1,13 @@
-kind: pipeline
-type: docker
-name: build-and-test
-
-steps:
-- name: build
-  image: python
-  commands:
-  - docker build -t my-python .
-# - name: test
-#   image: python
-#   commands:
-#   - docker run my-python pytest
-
----
 
 kind: pipeline
 type: docker
-name: deploy
+name: default
 
 steps:
-- name: deploy
+- name: greeting
   image: python
   commands:
-  - docker run -d -p 50081:50081 my-python python -m uvicorn test:app --host=0.0.0.0 --port=50081
-  detach: true
-
-
-# kind: pipeline
-# type: docker
-# name: default
-
-# steps:
-# - name: greeting
-#   image: python
-#   commands:
-#   - pip install -r requirements.txt
-#   - python -m uvicorn test:app --reload --host 0.0.0.0 --port 50081
-#   detach: true
+  # - pip install -r requirements.txt
+  # - python -m uvicorn test:app --reload --host 0.0.0.0 --port 50081
+  - echo "hello world"
+  # detach: true
